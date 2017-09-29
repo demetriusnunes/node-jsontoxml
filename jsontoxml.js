@@ -43,7 +43,7 @@ var process_to_xml = function(node_data,options){
       case 'array':
         var ret = [];
         node_data.map(function(v){
-            ret.push(fn(v,1, level+1));
+            ret.push(fn({ [options.arrayItemName || 'item']: v }, 1, level+1));
             //entries that are values of an array are the only ones that can be special node descriptors
         });
         options.prettyPrint && ret.push('\n');
